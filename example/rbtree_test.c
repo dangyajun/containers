@@ -59,6 +59,7 @@ int main()
 
 	struct mytype node[5];
 	struct mytype * ret;
+	struct rb_node * _node;
 
 	node[0].keystring = "0000";
 	node[1].keystring = "ffff";
@@ -83,6 +84,21 @@ int main()
 
 	ret = my_search(&mytree, "aaa");
 	printf("aaa ret @ %p\n", ret);
+
+	for ( _node = rb_first(&mytree); _node; _node = rb_next(_node))
+		printf("key=%s\n", rb_entry(_node, struct mytype, node)->keystring);
+
+	printf("remove key aaa\n");
+
+	ret = my_search(&mytree, "aaa");
+
+	if (ret) {
+		rb_erase(&ret->node, &mytree);
+		//myfree(data);
+	}
+
+	for ( _node = rb_first(&mytree); _node; _node = rb_next(_node))
+		printf("key=%s\n", rb_entry(_node, struct mytype, node)->keystring);	
 
 
 	return 0;
