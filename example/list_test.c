@@ -14,7 +14,7 @@ int main()
 	int i;
 	struct list_node mnodes[100];
 
-	for(i == 0; i < 100; i++){
+	for(i = 0; i < 100; i++){
 		mnodes[i].data = i;
 
 		list_add(&mnodes[i].mlist, &mylist);
