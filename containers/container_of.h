@@ -1,7 +1,7 @@
 #ifndef _CONTAINER_OF_H
 #define _CONTAINER_OF_H
 #if __linux__   //  or #if __GNUC__
-    #if __x86_64__ || __ppc64__
+    #if __LP64__
         #define ENVIRONMENT64
     #else
         #define ENVIRONMENT32
